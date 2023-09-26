@@ -22,7 +22,7 @@
                   <div class="modal-content ">
                      <!-- Modal Header -->
                      <div class="modal-header">
-                        <h4 class="modal-title">Modal Heading</h4>
+                        <h4 class="modal-title">Tambah Data</h4>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                      </div>
                      <!-- Modal body -->
@@ -84,7 +84,11 @@
                            <td><?= $pengguna['nama'] ?></td>
                            <td><?= $pengguna['level'] ?></td>
                            <td>
-                              <div class="button_block"><button type="button" class="btn cur-p btn-success">Ubah</button></div>
+                              <a href="<?= site_url('admin/user/delete_data/'.$pengguna['id_user']); ?>" class="btn btn-sm btn-danger" onClick="return confirm('Apakah anda yakin menghapus data ini')" ><span class="fa fa-trash"> </span></a> |
+                              <a href="<?= site_url('admin/user/edit/'.$pengguna['id_user']); ?>" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span></a>
+                              <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#myModal">
+                                 <span class="fa fa-edit"></span>
+                              </button>
                            </td>
                         </tr>
 
