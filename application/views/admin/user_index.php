@@ -84,11 +84,43 @@
                            <td><?= $pengguna['nama'] ?></td>
                            <td><?= $pengguna['level'] ?></td>
                            <td>
-                              <a href="<?= site_url('admin/user/delete_data/'.$pengguna['id_user']); ?>" class="btn btn-sm btn-danger" onClick="return confirm('Apakah anda yakin menghapus data ini')" ><span class="fa fa-trash"> </span></a> |
-                              <a href="<?= site_url('admin/user/edit/'.$pengguna['id_user']); ?>" class="btn btn-sm btn-warning"><span class="fa fa-edit"></span></a>
-                              <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#myModal">
+                              <a href="<?= site_url('admin/user/delete_data/' . $pengguna['id_user']); ?>" class="btn btn-sm btn-danger" onClick="return confirm('Apakah anda yakin menghapus data ini')"><span class="fa fa-trash"> </span></a> |
+                              <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit<?= $pengguna['id_user'] ?>">
                                  <span class="fa fa-edit"></span>
                               </button>
+
+                              <div class="modal fade" id="edit<?= $pengguna['id_user'] ?>">
+                                 <div class="modal-dialog modal-md" role="document">
+                                    <form action="<?= site_url('admin/user/update') ?>" method="post">
+                                    <input type="hidden" name="id_user" value="<?= $pengguna['id_user'] ?>">
+                                       <div class="modal-content ">
+                                          <!-- Modal Header -->
+                                          <div class="modal-header">
+                                             <h4 class="modal-title">Edit User</h4>
+                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          </div>
+                                          <!-- Modal body -->
+                                          <div class="modal-body">
+
+                                             <div class="col mb-3">
+                                                <label class="form-label">Nama</label>
+                                                <input type="text" name="nama" class="form-control" value="<?= $pengguna['nama'] ?>" />
+                                             </div>
+                                             <div class="col mb-3">
+                                                <label class="form-label">Username</label>
+                                                <input type="text" name="username" class="form-control" value="<?= $pengguna['username'] ?>" readonly />
+                                             </div>
+
+                                          </div>
+                                          <!-- Modal footer -->
+                                          <div class="modal-footer">
+                                             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Batal</button>
+                                             <button type="submit" class="btn btn-primary">Simpan</button>
+                                          </div>
+                                       </div>
+                                    </form>
+                                 </div>
+                              </div>
                            </td>
                         </tr>
 

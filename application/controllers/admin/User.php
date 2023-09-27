@@ -56,4 +56,14 @@ class User extends CI_Controller {
 		redirect('admin/user');
 	}
 
+	public function update(){
+		$this->User_model->update();
+		$this->session->set_flashdata('alert','
+		<div class="alert alert-success" role="alert">
+		Berhasil update user
+		</div>
+		');
+		redirect('admin/user');
+	}
+
 }
