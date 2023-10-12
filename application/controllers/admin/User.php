@@ -6,6 +6,9 @@ class User extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('User_model');
+		if ($this->session->userdata('level')!='Admin') {
+			redirect('auth');
+		}
 	}
 	public function index(){
 		$this->db->from('user');

@@ -1,1 +1,1 @@
-<h1>Selamat datang di</h1>
+<h1>Selamat datang, <?= $this->session->userdata('nama') ?></h1>

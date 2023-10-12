@@ -46,8 +46,8 @@
                   <div class="user_profle_side">
                      <div class="user_img"><img class="img-responsive" src="<?= site_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" /></div>
                      <div class="user_info">
-                        <h6>Agni Kala</h6>
-                        <p><span class="online_animation"></span> Online</p>
+                        <h6><?= $this->session->userdata('nama') ?></h6>
+                        <p><span class="online_animation"></span> <?= $this->session->userdata('level') ?></p>
                      </div>
                   </div>
                </div>
@@ -58,20 +58,13 @@
                   <li class="active">
                      <a href="<?= site_url('admin/home') ?>"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                   </li>
+                  <?php if($this->session->userdata('level')=='Admin'){ ?>
                   <li><a href="<?= site_url('admin/user') ?>"><i class="fa fa-user red_color"></i> <span>User</span></a></li>
+                  <li><a href="<?= site_url('admin/konfigurasi') ?>"><i class="fa fa-cog yellow_color"></i> <span>Konfigurasi</span></a></li>
+                  <?php } ?>
                   <li><a href="<?= site_url('admin/konten') ?>"><i class="fa fa-newspaper-o green_color"></i> <span>Konten</span></a></li>
                   <li><a href="<?= site_url('admin/kategori') ?>"><i class="fa fa-tags orange_color"></i> <span>Kategori</span></a></li>
                   <li><a href="<?= site_url('admin/caraousel') ?>"><i class="fa fa-object-group blue2_color"></i> <span>Caraousel</span></a></li>
-                  <li><a href="<?= site_url('admin/konfigurasi') ?>"><i class="fa fa-cog yellow_color"></i> <span>Konfigurasi</span></a></li>
-
-                  <li>
-                     <a href="#element" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-diamond purple_color"></i> <span>Elements</span></a>
-                     <ul class="collapse list-unstyled" id="element">
-                        <li><a href="general_elements.html">> <span>General Elements</span></a></li>
-                        <li><a href="media_gallery.html">> <span>Media Gallery</span></a></li>
-                        <li><a href="icons.html">> <span>Icons</span></a></li>
-                        <li><a href="invoice.html">> <span>Invoice</span></a></li>
-                     </ul>
 
                </ul>
             </div>
@@ -96,10 +89,10 @@
                            </ul>
                            <ul class="user_profile_dd">
                               <li>
-                                 <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="<?= site_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" /><span class="name_user">John David</span></a>
+                                 <a class="dropdown-toggle" data-toggle="dropdown"><img class="img-responsive rounded-circle" src="<?= site_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" /><span class="name_user"><?= $this->session->userdata('nama') ?></span></a>
                                  <div class="dropdown-menu">
                                     <a class="dropdown-item" href="settings.html">Password</a>
-                                    <a class="dropdown-item" href="#"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
+                                    <a class="dropdown-item" href="<?= site_url('auth/logout') ?>"><span>Log Out</span> <i class="fa fa-sign-out"></i></a>
                                  </div>
                               </li>
                            </ul>
