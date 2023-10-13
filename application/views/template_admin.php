@@ -41,6 +41,11 @@
          <!-- Sidebar  -->
          <nav id="sidebar">
             <div class="sidebar_blog_1">
+               <div class="sidebar-header">
+                  <div class="logo_section">
+                     <a href="<?= site_url('admin/home') ?>"><img class="logo_icon img-responsive" src="<?= site_url('assets/pluto/') ?>images/logo/logo_icon.png" alt="#" /></a>
+                  </div>
+               </div>
                <div class="sidebar_user_info">
                   <div class="icon_setting"></div>
                   <div class="user_profle_side">
@@ -55,7 +60,7 @@
             <div class="sidebar_blog_2">
                <h4>General</h4>
                <ul class="list-unstyled components">
-                  <li class="active">
+                  <li>
                      <a href="<?= site_url('admin/home') ?>"><i class="fa fa-dashboard yellow_color"></i> <span>Dashboard</span></a>
                   </li>
                   <?php if($this->session->userdata('level')=='Admin'){ ?>
@@ -78,7 +83,7 @@
                   <div class="full">
                      <button type="button" id="sidebarCollapse" class="sidebar_toggle"><i class="fa fa-bars"></i></button>
                      <div class="logo_section">
-                        <a href="index.html"><img class="img-responsive" src="<?= site_url('assets/pluto/') ?>images/logo/logo.png" alt="#" /></a>
+                        <a href="<?= site_url('admin/home') ?>"><img class="img-responsive" src="<?= site_url('assets/pluto/') ?>images/logo/logo.png" alt="#" /></a>
                      </div>
                      <div class="right_topbar">
                         <div class="icon_info">
