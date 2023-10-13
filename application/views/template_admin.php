@@ -159,7 +159,7 @@
    <script src="<?= site_url('assets/pluto/') ?>js/chart_custom_style1.js"></script>
    <script src="<?= site_url('assets/pluto/') ?>js/custom.js"></script>
    <script>
-      $('#ngilang').delay('slow').slideDown('slow').delay(10000).slideUp(600)
+      $('#disepir').delay('slow').slideDown('slow').delay(10000).slideUp(600)
    </script>
 </body>
 

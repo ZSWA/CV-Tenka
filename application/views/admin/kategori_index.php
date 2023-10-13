@@ -1,5 +1,5 @@
 <div class="row">
-   <div class="col-md-12" id="ngilang">
+   <div class="col-md-12" id="disepir">
       <?= $this->session->flashdata('alert'); ?>
    </div>
    <div class="col-md-12">
