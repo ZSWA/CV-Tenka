@@ -14,7 +14,9 @@ class Konten extends CI_Controller {
 		$this->db->order_by('kategori','ASC');
 		$kategori = $this->db->get()->result_array();
 
-		$this->db->from('konten');
+		$this->db->from('konten a');
+		$this->db->join('kategori b','a.id_kategori=b.id_kategori','left');
+		$this->db->join('user c','a.username=c.username','left');
 		$this->db->order_by('tanggal','DESC');
 		$konten = $this->db->get()->result_array();
 
@@ -80,17 +82,21 @@ class Konten extends CI_Controller {
 	}
 
 	public function delete_data($id){
+		$filename=FCPATH.'/assets/upload/konten/'.$id;
+		if (file_exists($filename)) {
+			unlink("./assets/upload/konten/".$id);
+		}
 		$where = array(
-			'id_kategori' => $id
+			'foto' => $id
 		);
 
-		$this->db->delete('kategori',$where);
+		$this->db->delete('konten',$where);
 		$this->session->set_flashdata('alert','
 		<div class="alert alert-success" role="alert">
-		Berhasil menghapus user
+		Berhasil menghapus konten
 		</div>
 		');
-		redirect('admin/kategori');
+		redirect('admin/konten');
 	}
 
 	public function update(){
