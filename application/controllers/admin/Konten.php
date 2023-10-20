@@ -100,21 +100,44 @@ class Konten extends CI_Controller {
 	}
 
 	public function update(){
-		$where = array(
-			'id_kategori' => $this->input->post('id_kategori')
-		);
-
+		$namafoto = $this->input->post('nama_baru');
+        $config['upload_path']      = 'assets/upload/konten/';
+        $config['max_size']         = 500 * 1024;
+        $config['file_name']        = $namafoto;
+        $config['overwrite']        = TRUE;
+        $config['allowed_types']    = '*';
+        $this->load->library('upload',$config);
+        if ($_FILES['foto']['size']>=500*1024) {
+            $this->session->set_flashdata('alert','
+			<div class="alert alert-danger" role="alert">
+			Ukuran foto terlalu besar!
+			</div>
+			');
+			redirect('admin/konten');
+        } elseif (!$this->upload->do_upload('foto')) {
+            $error = array('error' => $this->upload->display_errors());
+        } else {
+            $data = array('upload_data' => $this->upload->data());
+        }
+		
 		$data = array(
-			'kategori' => $this->input->post('kategori')
+			'judul' => $this->input->post('judul'),
+			'id_kategori' => $this->input->post('id_kategori'),
+			'isi_konten' => $this->input->post('isi'),
+			'slug' => str_replace(' ','-',$this->input->post('judul'))
+            
 		);
 
-		$this->db->update('kategori',$data,$where);
+		$where = array(
+			'foto' => $this->input->post('nama_baru')
+		);
+		$this->db->update('konten',$data,$where);
 		$this->session->set_flashdata('alert','
 		<div class="alert alert-success" role="alert">
-		Berhasil update kategori
+		Berhasil mengedit konten
 		</div>
 		');
-		redirect('admin/kategori');
-	}
+		redirect('admin/konten');
 
+	}
 }

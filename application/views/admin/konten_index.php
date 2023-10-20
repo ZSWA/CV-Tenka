@@ -1,6 +1,8 @@
 <div class="row">
-	<div class="col-md-12" id="disepir">
-		<?= $this->session->flashdata('alert'); ?>
+	<div class="col-md-12">
+		<div id="disepir">
+			<?= $this->session->flashdata('alert') ?>
+		</div>
 	</div>
 	<div class="col-md-12">
 		<div class="white_shd full margin_bottom_30">
@@ -47,8 +49,8 @@
 								</div>
 								<div class="col mb-3">
 									<label class="form-label">Foto</label>
-									<input type="file" name="foto" class="form-control" accept="image/png, image/jpg, image/jpeg"
-										required />
+									<input type="file" name="foto" class="form-control"
+										accept="image/png, image/jpg, image/jpeg" required />
 								</div>
 
 
@@ -56,7 +58,8 @@
 							</div>
 							<!-- Modal footer -->
 							<div class="modal-footer">
-								<button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Batal</button>
+								<button type="button" class="btn btn-outline-secondary"
+									data-dismiss="modal">Batal</button>
 								<button type="submit" class="btn btn-primary">Simpan</button>
 							</div>
 						</div>
@@ -64,11 +67,6 @@
 				</div>
 			</div>
 
-			<div class="full graph_head">
-				<div class="heading1 margin_0">
-					<h2>Konten</h2>
-				</div>
-			</div>
 			<div class="table_section padding_infor_info">
 				<div class="table-responsive-sm">
 					<table class="table table-hover">
@@ -106,27 +104,50 @@
 											class="fa fa-trash"> </span>
 									</a> |
 									<button type="button" class="btn btn-sm btn-warning" data-toggle="modal"
-										data-target="#edit<?= $k['id_kategori'] ?>">
+										data-target="#edit<?= $no ?>">
 										<span class="fa fa-edit"></span>
 									</button>
 
-									<div class="modal fade" id="edit<?= $k['id_kategori'] ?>">
+									<div class="modal fade" id="edit<?= $no ?>">
 										<div class="modal-dialog modal-md" role="document">
-											<form action="<?= site_url('admin/kategori/update') ?>" method="post">
-												<input type="hidden" name="id_kategori" value="<?= $k['id_kategori'] ?>">
+											<form action="<?= site_url('admin/konten/update') ?>" method="post"
+												enctype='multipart/form-data'>
+												<input type="hidden" name="nama_baru" value="<?= $k['foto'] ?>">
 												<div class="modal-content ">
 													<!-- Modal Header -->
 													<div class="modal-header">
-														<h4 class="modal-title">Edit Kategori</h4>
-														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title"><?= $k['judul'] ?></h4>
+														<button type="button" class="close"
+															data-dismiss="modal">&times;</button>
 													</div>
 													<!-- Modal body -->
 													<div class="modal-body">
 
 														<div class="col mb-3">
-															<label class="form-label">Nama</label>
-															<input type="text" name="kategori" class="form-control"
-																value="<?= $k['kategori'] ?>" />
+															<label class="form-label">Judul</label>
+															<input type="text" name="judul" class="form-control"
+																value="<?= $k['judul'] ?>" />
+														</div>
+														<div class="col mb-3">
+															<label class="form-label">Kategori</label>
+															<select name="id_kategori" class="form-control">
+																<?php foreach ($kategori as $kt) { ?>
+																<option <?php if($kt['id_kategori']==$k['id_kategori']){
+																	echo "selected";
+																} ?> value="<?= $kt['id_kategori'] ?>">
+																	<?= $kt['kategori'] ?></option>
+																<?php } ?>
+															</select>
+														</div>
+														<div class="col mb-3">
+															<label class="form-label">Keterangan</label>
+															<input type="text" name="isi" class="form-control"
+																value="<?= $k['isi_konten'] ?>" />
+														</div>
+														<div class="col mb-3">
+															<label class="form-label">Foto</label>
+															<input type="file" name="foto" class="form-control"
+																accept="image/png, image/jpeg, image/,jpg" />
 														</div>
 
 
