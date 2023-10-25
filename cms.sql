@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Okt 2023 pada 19.05
+-- Waktu pembuatan: 26 Okt 2023 pada 00.37
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -32,6 +32,14 @@ CREATE TABLE `caraousel` (
   `judul` varchar(60) NOT NULL,
   `foto` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `caraousel`
+--
+
+INSERT INTO `caraousel` (`id_caraousel`, `judul`, `foto`) VALUES
+(2, 'dasd', '20231021192220.jpg'),
+(3, 'test menu', '20231021192301.jpg');
 
 -- --------------------------------------------------------
 
@@ -83,6 +91,13 @@ CREATE TABLE `konfigurasi` (
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `konfigurasi`
+--
+
+INSERT INTO `konfigurasi` (`id`, `judul_website`, `profil_website`, `instagram`, `facebook`, `tiktok`, `alamat`, `email`) VALUES
+(1, 'Web Tenka', 'Komunitas', 'tenka.id', 'japanholic', 'tenka.id', 'misterius', 'znuri160@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -105,7 +120,8 @@ CREATE TABLE `konten` (
 --
 
 INSERT INTO `konten` (`id_konten`, `judul`, `id_kategori`, `slug`, `isi_konten`, `tanggal`, `username`, `foto`) VALUES
-(4, 'loremium test', '6', 'loremium-test', 'nyoba konten dulu', '2023-10-17', 'admin', '20231017175744.jpg');
+(4, 'loremium test', '6', 'loremium-test', 'nyoba konten dulu', '2023-10-17', 'admin', '20231017175744.jpg'),
+(7, 'test menu', '7', 'test-menu', 'fadsa2', '2023-10-20', 'admin', '20231020161559.jpg');
 
 -- --------------------------------------------------------
 
@@ -196,7 +212,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `caraousel`
 --
 ALTER TABLE `caraousel`
-  MODIFY `id_caraousel` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_caraousel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `galeri`
@@ -214,13 +230,13 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `konfigurasi`
 --
 ALTER TABLE `konfigurasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `konten`
 --
 ALTER TABLE `konten`
-  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_konten` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `saran`
