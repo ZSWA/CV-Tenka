@@ -23,11 +23,11 @@ class Caraousel extends CI_Controller {
 	public function simpan(){
         $namafoto = date('YmdHis').'.jpg';
         $config['upload_path']      = 'assets/upload/carousel/';
-        $config['max_size']         = 500 * 1024;
+        $config['max_size']         = 2048 * 1024;
         $config['file_name']        = $namafoto;
         $config['allowed_types']    = '*';
         $this->load->library('upload',$config);
-        if ($_FILES['foto']['size']>=500*1024) {
+        if ($_FILES['foto']['size']>=2048 * 1024) {
             $this->session->set_flashdata('alert','
 			<div class="alert alert-danger" role="alert">
 			Ukuran foto terlalu besar!

@@ -31,11 +31,11 @@ class Konten extends CI_Controller {
 	public function simpan(){
         $namafoto = date('YmdHis').'.jpg';
         $config['upload_path']      = 'assets/upload/konten/';
-        $config['max_size']         = 500 * 1024;
+        $config['max_size']         = 500 * 2048;
         $config['file_name']        = $namafoto;
         $config['allowed_types']    = '*';
         $this->load->library('upload',$config);
-        if ($_FILES['foto']['size']>=500*1024) {
+        if ($_FILES['foto']['size']>=500*2048) {
             $this->session->set_flashdata('alert','
 			<div class="alert alert-danger" role="alert">
 			Ukuran foto terlalu besar!
@@ -102,12 +102,12 @@ class Konten extends CI_Controller {
 	public function update(){
 		$namafoto = $this->input->post('nama_baru');
         $config['upload_path']      = 'assets/upload/konten/';
-        $config['max_size']         = 500 * 1024;
+        $config['max_size']         = 500 * 2048;
         $config['file_name']        = $namafoto;
         $config['overwrite']        = TRUE;
         $config['allowed_types']    = '*';
         $this->load->library('upload',$config);
-        if ($_FILES['foto']['size']>=500*1024) {
+        if ($_FILES['foto']['size']>=500*2048) {
             $this->session->set_flashdata('alert','
 			<div class="alert alert-danger" role="alert">
 			Ukuran foto terlalu besar!
