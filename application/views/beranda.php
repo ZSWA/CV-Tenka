@@ -236,11 +236,12 @@
 			</div>
 		</div>
 	</section>
-		<!-- Event -->
-		<section class="section-event">
+	<!-- Event -->
+	<section class="section-event">
 		<div class="wrap-slick2">
 			<div class="slick2">
-				<div class="item-slick2 item1-slick2" style="background-image: url(<?= site_url('assets/depan/')?>images/bg-event-01.jpg);">
+				<div class="item-slick2 item1-slick2"
+					style="background-image: url(<?= site_url('assets/depan/')?>images/bg-event-01.jpg);">
 					<div class="wrap-content-slide2 p-t-115 p-b-208">
 						<div class="container">
 							<!-- - -->
@@ -330,7 +331,8 @@
 					</div>
 				</div>
 
-				<div class="item-slick2 item2-slick2" style="background-image: url(<?= site_url('assets/depan/')?>images/bg-event-02.jpg);">
+				<div class="item-slick2 item2-slick2"
+					style="background-image: url(<?= site_url('assets/depan/')?>images/bg-event-02.jpg);">
 					<div class="wrap-content-slide2 p-t-115 p-b-208">
 						<div class="container">
 							<!-- - -->
@@ -420,7 +422,8 @@
 					</div>
 				</div>
 
-				<div class="item-slick2 item3-slick2" style="background-image: url(<?= site_url('assets/depan/')?>images/bg-event-04.jpg);">
+				<div class="item-slick2 item3-slick2"
+					style="background-image: url(<?= site_url('assets/depan/')?>images/bg-event-04.jpg);">
 					<div class="wrap-content-slide2 p-t-115 p-b-208">
 						<div class="container">
 							<!-- - -->
@@ -553,7 +556,7 @@
 							</a>
 
 							<p class="m-b-20">
-							<?php echo substr($k['isi_konten'], 0, 150)."..."; ?>
+								<?php echo substr($k['isi_konten'], 0, 150)."..."; ?>
 							</p>
 
 							<a href="<?= base_url('home/artikel/'.$k['slug']); ?>" class="txt4">
@@ -591,7 +594,7 @@
 						<div class="container">
 							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
 								data-appear="zoomIn">
-								<img src="images/avatar-01.jpg" alt="IGM-AVATAR">
+								<img src="<?= site_url('assets/depan/') ?>images/avatar-01.jpg" alt="IGM-AVATAR">
 							</div>
 
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -622,7 +625,7 @@
 						<div class="container">
 							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
 								data-appear="zoomIn">
-								<img src="images/avatar-04.jpg" alt="IGM-AVATAR">
+								<img src="<?= site_url('assets/depan/') ?>images/avatar-04.jpg" alt="IGM-AVATAR">
 							</div>
 
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -653,7 +656,7 @@
 						<div class="container">
 							<div class="pic-review size14 bo4 wrap-cir-pic m-l-r-auto animated visible-false"
 								data-appear="zoomIn">
-								<img src="images/avatar-05.jpg" alt="IGM-AVATAR">
+								<img src="<?= site_url('assets/depan/') ?>images/avatar-05.jpg" alt="IGM-AVATAR">
 							</div>
 
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
@@ -689,7 +692,7 @@
 	<!-- Intro -->
 	<section class="section-intro">
 		<div class="header-intro parallax100 t-center p-t-135 p-b-158"
-			style="background-image: url(images/bg-intro-01.jpg);">
+			style="background-image: url(<?= site_url('assets/depan/') ?>images/bg-intro-01.jpg);">
 			<span class="tit2 p-l-15 p-r-15">
 				Discover
 			</span>
@@ -706,7 +709,8 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="images/intro-01.jpg" alt="IMG-INTRO"></a>
+								<a href="#"><img src="<?= site_url('assets/depan/') ?>images/intro-01.jpg"
+										alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
@@ -732,7 +736,8 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="images/intro-02.jpg" alt="IMG-INTRO"></a>
+								<a href="#"><img src="<?= site_url('assets/depan/') ?>images/intro-02.jpg"
+										alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
@@ -758,7 +763,8 @@
 						<!-- Block1 -->
 						<div class="blo1">
 							<div class="wrap-pic-blo1 bo-rad-10 hov-img-zoom">
-								<a href="#"><img src="images/intro-04.jpg" alt="IMG-INTRO"></a>
+								<a href="#"><img src="<?= site_url('assets/depan/') ?>images/intro-04.jpg"
+										alt="IMG-INTRO"></a>
 							</div>
 
 							<div class="wrap-text-blo1 p-t-35">
@@ -804,7 +810,7 @@
 						<div class="col-sm-6">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="images/our-menu-01.jpg" alt="IMG-MENU">
+								<img src="<?= site_url('assets/depan/') ?>images/our-menu-01.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
 								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size4">
@@ -816,7 +822,7 @@
 						<div class="col-sm-6">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="images/our-menu-05.jpg" alt="IMG-MENU">
+								<img src="<?= site_url('assets/depan/') ?>images/our-menu-05.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
 								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size5">
@@ -828,7 +834,7 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="images/our-menu-13.jpg" alt="IMG-MENU">
+								<img src="<?= site_url('assets/depan/') ?>images/our-menu-13.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
 								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size6">
@@ -844,7 +850,7 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="images/our-menu-08.jpg" alt="IMG-MENU">
+								<img src="<?= site_url('assets/depan/') ?>images/our-menu-08.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
 								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size7">
@@ -856,7 +862,7 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="images/our-menu-10.jpg" alt="IMG-MENU">
+								<img src="<?= site_url('assets/depan/') ?>images/our-menu-10.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
 								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size8">
@@ -868,7 +874,7 @@
 						<div class="col-12">
 							<!-- Item our menu -->
 							<div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
-								<img src="images/our-menu-16.jpg" alt="IMG-MENU">
+								<img src="<?= site_url('assets/depan/') ?>images/our-menu-16.jpg" alt="IMG-MENU">
 
 								<!-- Button2 -->
 								<a href="#" class="btn2 flex-c-m txt5 ab-c-m size9">
@@ -885,7 +891,8 @@
 
 
 	<!-- Video -->
-	<section class="section-video parallax100" style="background-image: url(images/bg-cover-video-02.jpg);">
+	<section class="section-video parallax100"
+		style="background-image: url(<?= site_url('assets/depan/') ?>images/bg-cover-video-02.jpg);">
 		<div class="content-video t-center p-t-225 p-b-250">
 			<span class="tit2 p-l-15 p-r-15">
 				Discover
@@ -943,8 +950,8 @@
 							<?= $konfig->tiktok ?>
 						</li>
 					</ul>
-					
-					
+
+
 				</div>
 
 				<div class="col-sm-6 col-md-4 p-t-50">
@@ -1005,62 +1012,62 @@
 					<div class="wrap-gallery-footer flex-w">
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-01.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-02.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-03.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-04.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-05.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-06.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-07.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-08.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-09.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-10.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-11.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg"
 							data-lightbox="gallery-footer">
-							<img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-12.jpg" alt="GALLERY">
 						</a>
 					</div>
 
@@ -1071,7 +1078,7 @@
 		<div class="end-footer bg2">
 			<div class="container">
 				<div class="flex-sb-m flex-w p-t-22 p-b-22">
-					
+
 
 					<div class="txt17 p-r-20 p-t-5 p-b-5">
 						Copyright &copy; 2023 All rights reserved | This template is made with <i
@@ -1100,7 +1107,8 @@
 			<div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">&times;</div>
 
 			<div class="wrap-video-mo-01">
-				<div class="w-full wrap-pic-w op-0-0"><img src="images/icons/video-16-9.jpg" alt="IMG"></div>
+				<div class="w-full wrap-pic-w op-0-0"><img
+						src="<?= site_url('assets/depan/') ?>images/icons/video-16-9.jpg" alt="IMG"></div>
 				<div class="video-mo-01">
 					<iframe src="https://www.youtube.com/embed/5k1hSu2gdKE?rel=0&amp;showinfo=0"
 						allowfullscreen></iframe>
