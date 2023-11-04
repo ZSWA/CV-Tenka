@@ -69,6 +69,8 @@
 						<?php if($this->session->userdata('level')=='Admin'){ ?>
 						<li><a href="<?= site_url('admin/user') ?>"><i class="fa fa-user red_color"></i> <span>User</span></a>
 						</li>
+						<li><a href="<?= site_url('admin/divisi') ?>"><i class="fa fa-sitemap orange_color"></i>
+								<span>Divisi</span></a></li>
 						<li><a href="<?= site_url('admin/konfigurasi') ?>"><i class="fa fa-cog yellow_color"></i>
 								<span>Konfigurasi</span></a></li>
 						<?php } ?>

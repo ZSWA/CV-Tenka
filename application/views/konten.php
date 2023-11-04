@@ -57,12 +57,10 @@
 									<a href="<?= base_url() ?>">Home</a>
 								</li>
 
-								<?php foreach ($kategori as $k) { ?>
 								<li>
-									<a
-										href="<?= base_url('home/kategori'.$k['id_kategori']) ?>"><?= $k['kategori'] ?></a>
+									<a href="<?= base_url('home/konten') ?>">Konten</a>
 								</li>
-								<?php } ?>
+
 
 								<li>
 									<a href="gallery.html">Gallery</a>
@@ -98,11 +96,9 @@
 				<a href="<?= base_url() ?>" class="txt19">Home</a>
 			</li>
 
-			<?php foreach ($kategori as $k) { ?>
 			<li class="t-center m-b-13">
-				<a href="<?= base_url('home/kategori'.$k['id_kategori']) ?>" class="txt19"><?= $k['kategori'] ?></a>
+				<a href="<?= base_url('home/konten') ?>" class="txt19">Konten</a>
 			</li>
-			<?php } ?>
 
 			<li class="t-center m-b-13">
 				<a href="gallery.html" class="txt19">Gallery</a>
@@ -227,7 +223,7 @@
 
 								<div class="txt32 flex-w p-b-24">
 									<span>
-										<?= $k['username'] ?>
+										<?= $k['nama'] ?>
 										<span class="m-r-6 m-l-4">|</span>
 									</span>
 
@@ -283,7 +279,7 @@
 								<?php foreach ($kategori as $k) { ?>
 								<li class="bo5-b p-t-8 p-b-8">
 									<a
-										href="<?= base_url('home/kategori'.$k['id_kategori']) ?>" class="txt27"><?= $k['kategori'] ?></a>
+										href="<?= base_url('home/kategori/'.$k['id_kategori']) ?>" class="txt27"><?= $k['kategori'] ?></a>
 								</li>
 								<?php } ?>
 							</ul>

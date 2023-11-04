@@ -22,7 +22,7 @@
 					</div>
 					<div class="row">
 						<div class="col mb-3">
-							<label class="form-label">Pilih Foto dengan ukuran (1:3)</label>
+							<label class="form-label">Pilih Foto dengan ukuran (2:1)</label>
 							<input type="file" name="foto" class="form-control"
 								accept="image/png, image/jpg, image/jpeg" />
 						</div>
