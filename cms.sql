@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Nov 2023 pada 09.57
+-- Waktu pembuatan: 06 Nov 2023 pada 18.19
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.1.17
 
@@ -50,7 +50,7 @@ INSERT INTO `caraousel` (`id_caraousel`, `judul`, `foto`) VALUES
 
 CREATE TABLE `divisi` (
   `id_divisi` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
+  `nama_divisi` varchar(100) NOT NULL,
   `profil` text NOT NULL,
   `foto` varchar(255) NOT NULL,
   `instagram` varchar(50) NOT NULL
@@ -60,7 +60,7 @@ CREATE TABLE `divisi` (
 -- Dumping data untuk tabel `divisi`
 --
 
-INSERT INTO `divisi` (`id_divisi`, `nama`, `profil`, `foto`, `instagram`) VALUES
+INSERT INTO `divisi` (`id_divisi`, `nama_divisi`, `profil`, `foto`, `instagram`) VALUES
 (2, 'Yamaseki', 'Yamaseki adalah divisi event', '20231104093025.jpg', 'Yamaseki.official'),
 (3, 'Atarashii Kaze', 'Atarashii kaze adalah Divisi Cosplay', '20231104093518.jpg', 'atakaze.official'),
 (4, 'Setsuki', 'Setsuki adalah divisi konten', '20231104093617.jpg', 'setsuki.official'),
@@ -77,10 +77,19 @@ INSERT INTO `divisi` (`id_divisi`, `nama`, `profil`, `foto`, `instagram`) VALUES
 
 CREATE TABLE `galeri` (
   `id_galeri` int(11) NOT NULL,
-  `judul` varchar(60) NOT NULL,
-  `foto` varchar(30) NOT NULL,
-  `tanggal` date NOT NULL
+  `judul` varchar(255) NOT NULL,
+  `foto_galeri` varchar(255) NOT NULL,
+  `id_divisi` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `galeri`
+--
+
+INSERT INTO `galeri` (`id_galeri`, `judul`, `foto_galeri`, `id_divisi`, `username`) VALUES
+(3, 'dasds', '20231106170031.jpg', 3, 'admin'),
+(5, 'ls', '20231106180059.jpg', 4, 'admin');
 
 -- --------------------------------------------------------
 
@@ -255,13 +264,13 @@ ALTER TABLE `caraousel`
 -- AUTO_INCREMENT untuk tabel `divisi`
 --
 ALTER TABLE `divisi`
-  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_divisi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `kategori`

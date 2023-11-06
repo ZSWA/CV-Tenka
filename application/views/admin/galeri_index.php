@@ -12,7 +12,7 @@
 						<div class="full">
 							<div class="padding_infor_info">
 								<button type="button" class="model_bt btn btn-primary" data-toggle="modal"
-									data-target="#myModal">Tambah Divisi</button>
+									data-target="#myModal">Tambah Galeri</button>
 							</div>
 						</div>
 					</div>
@@ -21,31 +21,31 @@
 
 			<div class="modal fade" id="myModal">
 				<div class="modal-dialog modal-lg" role="document">
-					<form action="<?= site_url('admin/divisi/simpan') ?>" method="post" enctype='multipart/form-data'>
+					<form action="<?= site_url('admin/galeri/simpan') ?>" method="post" enctype='multipart/form-data'>
 						<div class="modal-content ">
 							<!-- Modal Header -->
 							<div class="modal-header">
-								<h4 class="modal-title">Tambah Divisi</h4>
+								<h4 class="modal-title">Tambah Galeri</h4>
 								<button type="button" class="close" data-dismiss="modal">&times;</button>
 							</div>
 							<!-- Modal body -->
 							<div class="modal-body">
 
 								<div class="col mb-3">
-									<label class="form-label">Nama</label>
-									<input type="text" name="nama" class="form-control" placeholder="Nama" required />
+									<label class="form-label">Judul</label>
+									<input type="text" name="judul" class="form-control" placeholder="Judul" required />
 								</div>
 								<div class="col mb-3">
-									<label class="form-label">Profil</label>
-									<textarea name="profil" class="form-control" required></textarea>
-								</div>
-                                <div class="col mb-3">
-									<label class="form-label">Instagram</label>
-									<input type="text" name="instagram" class="form-control" placeholder="Instagram" required />
+									<label class="form-label">Divisi</label>
+									<select name="id_divisi" class="form-control">
+										<?php foreach ($divisi as $d) { ?>
+										<option value="<?= $d['id_divisi'] ?>"><?= $d['nama_divisi'] ?></option>
+										<?php } ?>
+									</select>
 								</div>
 								<div class="col mb-3">
-									<label class="form-label">Logo (1:1)</label>
-									<input type="file" name="logo" class="form-control"
+									<label class="form-label">Foto (4:3)</label>
+									<input type="file" name="foto" class="form-control"
 										accept="image/png, image/jpg, image/jpeg" required />
 								</div>
 
@@ -69,30 +69,30 @@
 						<thead>
 							<tr>
 								<th>No</th>
-								<th>Nama</th>
-								<th>Profil</th>
-								<th>Instagram</th>
-								<th>Logo</th>
+								<th>Judul</th>
+								<th>Divisi</th>
+								<th>Uploader</th>
+								<th>Foto</th>
 								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-							<?php $no=1; foreach ($divisi as $d) { ?>
+							<?php $no=1; foreach ($galeri as $g) { ?>
 
 
 							<tr>
 								<td><?= $no ?></td>
-								<td><?= $d['nama_divisi'] ?></td>
-								<td><?= $d['profil'] ?></td>
-								<td><?= $d['instagram'] ?></td>
+								<td><?= $g['judul'] ?></td>
+								<td><?= $g['nama_divisi'] ?></td>
+								<td><?= $g['nama'] ?></td>
 								<td>
-									<a href="<?= site_url('assets/upload/divisi/').$d['foto'] ?>" target="_blank">
+									<a href="<?= site_url('assets/upload/galeri/').$g['foto_galeri'] ?>" target="_blank">
 										<span class="fa fa-search"></span>Lihat Foto
 									</a>
 								</td>
 
 								<td>
-									<a href="<?= site_url('admin/divisi/delete_data/' . $d['foto']); ?>"
+									<a href="<?= site_url('admin/galeri/delete_data/' . $g['foto_galeri']); ?>"
 										class="btn btn-sm btn-danger"
 										onClick="return confirm('Apakah anda yakin menghapus data ini')"><span
 											class="fa fa-trash"> </span>
@@ -104,13 +104,13 @@
 
 									<div class="modal fade" id="edit<?= $no ?>">
 										<div class="modal-dialog modal-md" role="document">
-											<form action="<?= site_url('admin/divisi/update') ?>" method="post"
+											<form action="<?= site_url('admin/galeri/update') ?>" method="post"
 												enctype='multipart/form-data'>
-												<input type="hidden" name="nama_baru" value="<?= $d['foto'] ?>">
+												<input type="hidden" name="nama_baru" value="<?= $g['foto_galeri'] ?>">
 												<div class="modal-content ">
 													<!-- Modal Header -->
 													<div class="modal-header">
-														<h4 class="modal-title"><?= $d['nama_divisi'] ?></h4>
+														<h4 class="modal-title"><?= $g['judul'] ?></h4>
 														<button type="button" class="close"
 															data-dismiss="modal">&times;</button>
 													</div>
@@ -118,22 +118,24 @@
 													<div class="modal-body">
 
 														<div class="col mb-3">
-															<label class="form-label">Nama</label>
-															<input type="text" name="nama" class="form-control"
-																value="<?= $d['nama_divisi'] ?>" />
+															<label class="form-label">Judul</label>
+															<input type="text" name="judul" class="form-control"
+																value="<?= $g['judul'] ?>" />
 														</div>
 														<div class="col mb-3">
-															<label class="form-label">Profil</label>
-                                                            <textarea name="profil" class="form-control"><?= $d['profil'] ?></textarea>
-														</div>
-                                                        <div class="col mb-3">
-															<label class="form-label">Instagram</label>
-															<input type="text" name="instagram" class="form-control"
-																value="<?= $d['instagram'] ?>" />
+															<label class="form-label">Divisi</label>
+															<select name="id_divisi" class="form-control">
+																<?php foreach ($divisi as $div) { ?>
+																<option <?php if($div['id_divisi']==$g['id_divisi']){
+																	echo "selected";
+																} ?> value="<?= $div['id_divisi'] ?>">
+																	<?= $div['nama_divisi'] ?></option>
+																<?php } ?>
+															</select>
 														</div>
 														<div class="col mb-3">
-															<label class="form-label">logo (1:1)</label>
-															<input type="file" name="logo" class="form-control"
+															<label class="form-label">Foto (4:3)</label>
+															<input type="file" name="foto" class="form-control"
 																accept="image/png, image/jpeg, image/,jpg" />
 														</div>
 

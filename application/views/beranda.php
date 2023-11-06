@@ -68,7 +68,7 @@
 
 
 								<li>
-									<a href="gallery.html">Gallery</a>
+									<a href="<?= base_url('home/galeri') ?>">Gallery</a>
 								</li>
 
 								<li>
@@ -125,50 +125,13 @@
 
 			<!-- Gallery -->
 			<div class="wrap-gallery-sidebar flex-w">
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-01.jpg"
+			<?php foreach ($galeri as $g ) { ?>
+				<a class="item-gallery-sidebar wrap-pic-w" href="<?= site_url('assets/upload/galeri/').$g['foto_galeri']  ?>"
 					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+					<img src="<?= site_url('assets/upload/galeri/').$g['foto_galeri']  ?>" alt="GALLERY">
 				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-02.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-03.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-05.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-06.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-07.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-09.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-10.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
-				</a>
-
-				<a class="item-gallery-sidebar wrap-pic-w" href="images/photo-gallery-11.jpg"
-					data-lightbox="gallery-footer">
-					<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
-				</a>
+				<?php } ?>
+				
 			</div>
 		</div>
 	</aside>
@@ -599,7 +562,7 @@
 							<div class="content-review m-t-33 animated visible-false" data-appear="fadeInUp">
 							<div class="more-review txt7 t-center animated visible-false m-t-32"
 									data-appear="fadeInUp">
-									<?= $d['nama'] ?>
+									<?= $d['nama_divisi'] ?>
 								</div>
 							
 							<p class="t-center txt12 size15 m-l-r-auto">
@@ -747,65 +710,13 @@
 
 					<!-- Gallery footer -->
 					<div class="wrap-gallery-footer flex-w">
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg"
+					<?php foreach ($galeri as $g ) { ?>
+						<a class="item-gallery-footer wrap-pic-w" href="<?= site_url('assets/upload/galeri/').$g['foto_galeri']  ?>"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+							<img src="<?= site_url('assets/upload/galeri/').$g['foto_galeri']  ?>" alt="GALLERY">
 						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-02.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-03.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-04.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-05.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-06.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-07.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-08.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-09.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-10.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-11.jpg" alt="GALLERY">
-						</a>
-
-						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg"
-							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-12.jpg" alt="GALLERY">
-						</a>
+						<?php }?>
+						
 					</div>
 
 				</div>

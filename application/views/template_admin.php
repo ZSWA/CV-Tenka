@@ -51,7 +51,8 @@
 						<div class="icon_setting"></div>
 						<div class="user_profle_side">
 							<div class="user_img"><img class="img-responsive"
-									src="<?= site_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" /></div>
+									src="<?= site_url('assets/pluto/') ?>images/layout_img/user_img.jpg" alt="#" />
+							</div>
 							<div class="user_info">
 								<h6><?= $this->session->userdata('nama') ?></h6>
 								<p><span class="online_animation"></span> <?= $this->session->userdata('level') ?></p>
@@ -67,7 +68,8 @@
 								<span>Dashboard</span></a>
 						</li>
 						<?php if($this->session->userdata('level')=='Admin'){ ?>
-						<li><a href="<?= site_url('admin/user') ?>"><i class="fa fa-user red_color"></i> <span>User</span></a>
+						<li><a href="<?= site_url('admin/user') ?>"><i class="fa fa-user red_color"></i>
+								<span>User</span></a>
 						</li>
 						<li><a href="<?= site_url('admin/divisi') ?>"><i class="fa fa-sitemap orange_color"></i>
 								<span>Divisi</span></a></li>
@@ -80,6 +82,8 @@
 								<span>Kategori</span></a></li>
 						<li><a href="<?= site_url('admin/caraousel') ?>"><i class="fa fa-object-group blue2_color"></i>
 								<span>Caraousel</span></a></li>
+						<li><a href="<?= site_url('admin/galeri') ?>"><i class="fa fa-photo green_color"></i>
+								<span>Galeri</span></a></li>
 					</ul>
 				</div>
 			</nav>
@@ -99,9 +103,11 @@
 							<div class="right_topbar">
 								<div class="icon_info">
 									<ul>
-										<li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a></li>
+										<li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a>
+										</li>
 										<li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a></li>
+										<li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a>
+										</li>
 									</ul>
 									<ul class="user_profile_dd">
 										<li>
@@ -112,7 +118,8 @@
 													class="name_user"><?= $this->session->userdata('nama') ?></span></a>
 											<div class="dropdown-menu">
 												<a class="dropdown-item" href="settings.html">Password</a>
-												<a class="dropdown-item" href="<?= site_url('auth/logout') ?>"><span>Log Out</span>
+												<a class="dropdown-item" href="<?= site_url('auth/logout') ?>"><span>Log
+														Out</span>
 													<i class="fa fa-sign-out"></i></a>
 											</div>
 										</li>
@@ -175,6 +182,7 @@
 	<script src="<?= site_url('assets/pluto/') ?>js/chart_custom_style1.js"></script>
 	<script>
 		$('#disepir').delay('slow').slideDown('slow').delay(100).slideUp(600);
+
 	</script>
 </body>
 

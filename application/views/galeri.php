@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Blog</title>
+	<title>Gallery</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -174,220 +174,61 @@
 		</div>
 	</aside>
 
-
 	<!-- Title Page -->
 	<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
-		style="background-image: url(<?= site_url('assets/depan/') ?>images/bg-title-page-03.jpg);">
+		style="background-image: url(<?= site_url('assets/depan/')?>images/bg-title-page-02.jpg);">
 		<h2 class="tit6 t-center">
-			Blog
+			Gallery
 		</h2>
 	</section>
 
 
-	<!-- Content page -->
-	<section>
-		<div class="bread-crumb bo5-b p-t-17 p-b-17">
-			<div class="container">
-				<a href="<?= site_url()?>" class="txt27">
-					Home
-				</a>
 
-				<span class="txt29 m-l-10 m-r-10">/</span>
+	<!-- Gallery -->
+	<div class="section-gallery p-t-118 p-b-100">
+		<div
+			class="wrap-label-gallery filter-tope-group size27 flex-w flex-sb-m m-l-r-auto flex-col-c-sm p-l-15 p-r-15 m-b-60">
 
-				<span class="txt29">
-					Blog
-				</span>
-			</div>
+
+
+			<button class="label-gallery txt26 trans-0-4 is-actived" data-filter="*">
+				All Photo
+			</button>
+			<?php foreach ($divisi as $d ) { ?>
+			<button class="label-gallery txt26 trans-0-4" data-filter=".<?= $d['id_divisi']?>">
+				<?= $d['nama_divisi']?>
+			</button>
+			<?php }?>
+
+
 		</div>
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-lg-9">
-					<div class="p-t-80 p-b-124 bo5-r h-full p-r-50 p-r-0-md bo-none-md">
-						<?php foreach ($konten as $k) { ?>
-						<!-- Block4 -->
-						<div class="blo4 p-b-63">
-							<div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
-								<a href="<?= base_url('home/artikel/'.$k['slug']); ?>">
-									<img src="<?= site_url('assets/upload/konten/').$k['foto']  ?>" alt="IMG-BLOG">
-								</a>
-
-								<div class="date-blo4 flex-col-c-m">
-									<span class="txt30 m-b-4">
-										<?= date('d', strtotime($k['tanggal'])) ?>
-									</span>
-
-									<span class="txt31">
-										<?= date('M, Y', strtotime($k['tanggal'])) ?>
-									</span>
-								</div>
-							</div>
-
-							<div class="text-blo4 p-t-33">
-								<h4 class="p-b-16">
-									<a href="<?= base_url('home/artikel/'.$k['slug']); ?>"
-										class="tit9"><?= $k['judul'] ?></a>
-								</h4>
-
-								<div class="txt32 flex-w p-b-24">
-									<span>
-										<?= $k['nama'] ?>
-										<span class="m-r-6 m-l-4">|</span>
-									</span>
-
-									<span>
-										<?= date('d F, Y', strtotime($k['tanggal'])) ?>
-										<span class="m-r-6 m-l-4">|</span>
-									</span>
-
-									<span>
-										<?= $k['kategori'] ?>
-
-									</span>
+		<div class="wrap-gallery isotope-grid flex-w p-l-25 p-r-25">
+			<!-- - -->
 
 
-								</div>
+			<?php foreach ($galeri as $g ) { ?>
+			<!-- - -->
+			<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom <?= $g['id_divisi']?>">
+				<img src="<?= site_url('assets/upload/galeri/').$g['foto_galeri']  ?>" alt="IMG-GALLERY">
 
-								<p>
-									<?php echo substr($k['isi_konten'], 0, 150)."..."; ?>
-								</p>
-
-								<a href="<?= base_url('home/artikel/'.$k['slug']); ?>" class="dis-block txt4 m-t-30">
-									Baca Selengkapnya
-									<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-						<?php } ?>
-
-
-						<!-- Pagination -->
-						<div class="pagination flex-l-m flex-w m-l--6 p-t-25">
-							<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
-							<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-md-4 col-lg-3">
-					<div class="sidebar2 p-t-80 p-b-80 p-l-20 p-l-0-md p-t-0-md">
-						<!-- Search -->
-						<div class="search-sidebar2 size12 bo2 pos-relative">
-							<input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search"
-								placeholder="Search">
-							<button class="btn-search-sidebar2 flex-c-m ti-search trans-0-4"></button>
-						</div>
-
-						<!-- Categories -->
-						<div class="categories">
-							<h4 class="txt33 bo5-b p-b-35 p-t-58">
-								Categories
-							</h4>
-
-							<ul>
-								<?php foreach ($kategori as $k) { ?>
-								<li class="bo5-b p-t-8 p-b-8">
-									<a href="<?= base_url('home/kategori/'.$k['id_kategori']) ?>"
-										class="txt27"><?= $k['kategori'] ?></a>
-								</li>
-								<?php } ?>
-							</ul>
-						</div>
-
-
-						<!-- Archive -->
-						<div class="archive">
-							<h4 class="txt33 p-b-20 p-t-43">
-								Archive
-							</h4>
-
-							<ul>
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										uly 2018
-									</a>
-
-									<span class="txt29">
-										(9)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										June 2018
-									</a>
-
-									<span class="txt29">
-										(39)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										May 2018
-									</a>
-
-									<span class="txt29">
-										(29)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										April 2018
-									</a>
-
-									<span class="txt29">
-										(35)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										March 2018
-									</a>
-
-									<span class="txt29">
-										(22)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										February 2018
-									</a>
-
-									<span class="txt29">
-										(32)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										January 2018
-									</a>
-
-									<span class="txt29">
-										(21)
-									</span>
-								</li>
-
-								<li class="flex-sb-m p-t-8 p-b-8">
-									<a href="#" class="txt27">
-										December 2017
-									</a>
-
-									<span class="txt29">
-										(26)
-									</span>
-								</li>
-							</ul>
-						</div>
-					</div>
+				<div class="overlay-item-gallery trans-0-4 flex-c-m">
+					<a class="btn-show-gallery flex-c-m"
+						href="<?= site_url('assets/upload/galeri/').$g['foto_galeri']  ?>"
+						data-lightbox="gallery"><?= $g['judul']?></a>
 				</div>
 			</div>
+			<?php }?>
+			<!-- - -->
+
 		</div>
-	</section>
+
+		<div class="pagination flex-c-m flex-w p-l-15 p-r-15 m-t-24 m-b-50">
+			<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+			<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+			<a href="#" class="item-pagination flex-c-m trans-0-4">3</a>
+		</div>
+	</div>
 
 
 
@@ -404,7 +245,7 @@
 					<ul class="m-b-70">
 						<li class="txt14 m-b-14">
 							<i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
-							<?= $konfig->alamat ?>
+							8th floor, 379 Hudson St, New York, NY 10018
 						</li>
 
 						<li class="txt14 m-b-14">
@@ -414,23 +255,24 @@
 
 						<li class="txt14 m-b-14">
 							<i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
-							<?= $konfig->email ?>
-						</li>
-						<li class="txt14 m-b-14">
-							<i class="fa fa-facebook fs-13 size19" aria-hidden="true"></i>
-							<?= $konfig->facebook ?>
-						</li>
-						<li class="txt14 m-b-14">
-							<i class="fa fa-instagram fs-13 size19" aria-hidden="true"></i>
-							<?= $konfig->instagram ?>
-						</li>
-						<li class="txt14 m-b-14">
-							<i class="fa fa-tiktok fs-13 size19" aria-hidden="true"></i>
-							<?= $konfig->tiktok ?>
+							contact@site.com
 						</li>
 					</ul>
 
+					<!-- - -->
+					<h4 class="txt13 m-b-32">
+						Opening Times
+					</h4>
 
+					<ul>
+						<li class="txt14">
+							09:30 AM – 11:00 PM
+						</li>
+
+						<li class="txt14">
+							Every Day
+						</li>
+					</ul>
 				</div>
 
 				<div class="col-sm-6 col-md-4 p-t-50">
@@ -491,62 +333,62 @@
 					<div class="wrap-gallery-footer flex-w">
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-01.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-01.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-01.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-02.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-02.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-02.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-03.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-03.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-03.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-04.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-04.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-04.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-05.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-05.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-05.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-06.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-06.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-06.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-07.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-07.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-07.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-08.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-08.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-08.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-09.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-09.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-09.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-10.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-10.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-10.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-11.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-11.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-11.jpg" alt="GALLERY">
 						</a>
 
 						<a class="item-gallery-footer wrap-pic-w" href="images/photo-gallery-12.jpg"
 							data-lightbox="gallery-footer">
-							<img src="<?= site_url('assets/depan/') ?>images/photo-gallery-thumb-12.jpg" alt="GALLERY">
+							<img src="images/photo-gallery-thumb-12.jpg" alt="GALLERY">
 						</a>
 					</div>
 
@@ -557,10 +399,14 @@
 		<div class="end-footer bg2">
 			<div class="container">
 				<div class="flex-sb-m flex-w p-t-22 p-b-22">
-
+					<div class="p-t-5 p-b-5">
+						<a href="#" class="fs-15 c-white"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
+						<a href="#" class="fs-15 c-white"><i class="fa fa-facebook m-l-18" aria-hidden="true"></i></a>
+						<a href="#" class="fs-15 c-white"><i class="fa fa-twitter m-l-18" aria-hidden="true"></i></a>
+					</div>
 
 					<div class="txt17 p-r-20 p-t-5 p-b-5">
-						Copyright &copy; 2023 All rights reserved | This template is made with <i
+						Copyright &copy; 2018 All rights reserved | This template is made with <i
 							class="fa fa-heart"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
 					</div>
 				</div>

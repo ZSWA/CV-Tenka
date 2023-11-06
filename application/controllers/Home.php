@@ -12,6 +12,11 @@ class Home extends CI_Controller {
 		$this->db->from('konfigurasi');
 		$konfigurasi = $this->db->get()->row();
 
+		$this->db->from('galeri');
+		$this->db->order_by('id_galeri','DESC');
+		$this->db->limit(12);
+		$galeri = $this->db->get()->result_array();
+
 		$this->db->from('kategori');
 		$kategori = $this->db->get()->result_array();
 
@@ -19,7 +24,7 @@ class Home extends CI_Controller {
 		$carosel = $this->db->get()->result_array();
 
 		$this->db->from('divisi');
-		$this->db->order_by('nama','ASC');
+		$this->db->order_by('nama_divisi','ASC');
 		$divisi = $this->db->get()->result_array();
 
 		$this->db->from('konten a');
@@ -35,6 +40,7 @@ class Home extends CI_Controller {
 			'kategori' => $kategori,
 			'carosel' => $carosel,
 			'divisi' => $divisi,
+			'galeri' => $galeri,
 			'konten' => $konten
 
 		);
@@ -119,5 +125,29 @@ class Home extends CI_Controller {
 
 		);
 		$this->load->view('konten',$data);
+	}
+
+	public function galeri(){
+		$this->db->from('konfigurasi');
+		$konfigurasi = $this->db->get()->row();
+
+		$this->db->from('divisi');
+		$divisi = $this->db->get()->result_array();
+
+		
+
+		$this->db->from('galeri a');
+		$this->db->join('divisi b','a.id_divisi=b.id_divisi','left');
+		$this->db->join('user c','a.username=c.username','left');
+		$this->db->order_by('id_galeri','DESC');
+		$galeri = $this->db->get()->result_array();
+
+		$data = array(
+			'judul' => 'Tenka ID',
+			'konfig' => $konfigurasi,
+			'divisi'	=> $divisi,
+            'galeri' => $galeri
+		);
+		$this->load->view('galeri',$data);
 	}
 }
