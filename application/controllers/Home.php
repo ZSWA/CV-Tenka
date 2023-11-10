@@ -12,6 +12,11 @@ class Home extends CI_Controller {
 		$this->db->from('konfigurasi');
 		$konfigurasi = $this->db->get()->row();
 
+		$this->db->from('event');
+		$this->db->order_by('tanggal','ASC');
+		$this->db->where('tanggal >=',date("Y-m-d h:i:s"));
+		$event = $this->db->get()->result_array();
+
 		$this->db->from('galeri');
 		$this->db->order_by('id_galeri','DESC');
 		$this->db->limit(12);
@@ -41,6 +46,7 @@ class Home extends CI_Controller {
 			'carosel' => $carosel,
 			'divisi' => $divisi,
 			'galeri' => $galeri,
+			'event' => $event,
 			'konten' => $konten
 
 		);

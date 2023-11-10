@@ -78,6 +78,8 @@
 						<?php } ?>
 						<li><a href="<?= site_url('admin/konten') ?>"><i class="fa fa-newspaper-o green_color"></i>
 								<span>Konten</span></a></li>
+						<li><a href="<?= site_url('admin/event') ?>"><i class="fa fa-newspaper-o red_color"></i>
+								<span>Event</span></a></li>
 						<li><a href="<?= site_url('admin/kategori') ?>"><i class="fa fa-tags orange_color"></i>
 								<span>Kategori</span></a></li>
 						<li><a href="<?= site_url('admin/caraousel') ?>"><i class="fa fa-object-group blue2_color"></i>
