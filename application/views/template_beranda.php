@@ -290,6 +290,8 @@
 	<!--===============================================================================================-->
 	<script type="text/javascript" src="<?= site_url('assets/depan/') ?>vendor/lightbox2/js/lightbox.min.js"></script>
 	<!--===============================================================================================-->
+	<script type="text/javascript" src="<?= site_url('assets/depan/') ?>vendor/isotope/isotope.pkgd.min.js"></script>
+	<!--===============================================================================================-->
 	<script src="<?= site_url('assets/depan/') ?>js/main.js"></script>
 
 </body>
