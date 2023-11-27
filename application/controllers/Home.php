@@ -5,6 +5,7 @@ class Home extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		
 	}
 
 	public function index()
@@ -50,7 +51,7 @@ class Home extends CI_Controller {
 			'konten' => $konten
 
 		);
-		$this->load->view('beranda',$data);
+		$this->template->load('template_beranda','beranda', $data);
 	}
 
 	public function kategori($id)
@@ -79,7 +80,7 @@ class Home extends CI_Controller {
 			'konten' => $konten
 
 		);
-		$this->load->view('konten',$data);
+		$this->template->load('template_beranda','konten', $data);
 	}
 
 	public function artikel($id){
@@ -105,7 +106,7 @@ class Home extends CI_Controller {
 			'konten' => $konten
 
 		);
-		$this->load->view('detail',$data);
+		$this->template->load('template_beranda','detail', $data);
 	}
 
 	public function konten(){
@@ -121,6 +122,23 @@ class Home extends CI_Controller {
 		$this->db->join('kategori b','a.id_kategori=b.id_kategori','left');
 		$this->db->join('user c','a.username=c.username','left');
 		$this->db->order_by('tanggal','DESC');
+		$hitung =$this->db->get();
+
+		$config['base_url']='http://localhost/belajar/home/konten';
+		$config['total_rows']= $hitung->num_rows();
+		$config['per_page'] = 3;
+		$config['full_tag_open'] = '<div class="pagination flex-l-m flex-w m-l--6 p-t-25">';
+		$config['full_tag_close'] = '</div>';
+		$config['next_link'] = '&raquo';
+		$config['prev_link'] = '&laquo';
+		$config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
+		$this->pagination->initialize($config);
+
+		$this->db->from('konten a');
+		$this->db->join('kategori b','a.id_kategori=b.id_kategori','left');
+		$this->db->join('user c','a.username=c.username','left');
+		$this->db->order_by('tanggal','DESC');
+		$this->db->limit($config['per_page'],$this->uri->segment(3));
 		$konten = $this->db->get()->result_array();
 
 		$data = array(
@@ -130,7 +148,9 @@ class Home extends CI_Controller {
 			'konten' => $konten
 
 		);
-		$this->load->view('konten',$data);
+		
+
+		$this->template->load('template_beranda','konten', $data);
 	}
 
 	public function galeri(){
@@ -154,6 +174,6 @@ class Home extends CI_Controller {
 			'divisi'	=> $divisi,
             'galeri' => $galeri
 		);
-		$this->load->view('galeri',$data);
+		$this->template->load('template_beranda','galeri', $data);
 	}
 }
