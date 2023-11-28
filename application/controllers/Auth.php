@@ -5,17 +5,19 @@ class Auth extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		if ($this->session->userdata('level')=='Admin') {
-			redirect('admin/home');
-		} elseif ($this->session->userdata('level')=='Kontributor') {
-			redirect('admin/home');
-		}
+		
 	}
 
 	public function index()
 	{
+		if ($this->session->userdata('level')=='Admin') {
+			redirect('admin/home');
+		} elseif ($this->session->userdata('level')=='Kontributor') {
+			redirect('admin/home');
+		} else {
+			$this->load->view('login');
+		}
 		
-		$this->load->view('login');
 	}
 
     public function login()	{
@@ -54,7 +56,7 @@ class Auth extends CI_Controller {
 
 	public function logout(){
 		$this->session->sess_destroy();
-		redirect('home');
+		redirect('');
 	}
 
 }

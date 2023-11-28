@@ -160,12 +160,28 @@ class Home extends CI_Controller {
 		$this->db->from('divisi');
 		$divisi = $this->db->get()->result_array();
 
+		$this->db->from('galeri a');
+		$this->db->join('divisi b','a.id_divisi=b.id_divisi','left');
+		$this->db->join('user c','a.username=c.username','left');
+		$this->db->order_by('id_galeri','DESC');
+		$hitung = $this->db->get();
+
+		$config['base_url']='http://localhost/belajar/home/galeri';
+		$config['total_rows']= $hitung->num_rows();
+		$config['per_page'] = 9;
+		$config['full_tag_open'] = '<div class="pagination flex-c-m flex-w p-l-15 p-r-15 m-t-24 m-b-50">';
+		$config['full_tag_close'] = '</div>';
+		$config['next_link'] = '&raquo';
+		$config['prev_link'] = '&laquo';
+		$config['attributes'] = array('class' => 'item-pagination flex-c-m trans-0-4');
+		$this->pagination->initialize($config);
 		
 
 		$this->db->from('galeri a');
 		$this->db->join('divisi b','a.id_divisi=b.id_divisi','left');
 		$this->db->join('user c','a.username=c.username','left');
 		$this->db->order_by('id_galeri','DESC');
+		$this->db->limit($config['per_page'],$this->uri->segment(3));
 		$galeri = $this->db->get()->result_array();
 
 		$data = array(

@@ -100,10 +100,42 @@
 									<p class="t-center">
 										<?= $e['konten_event']?>
 									</p>
+									
+									
+									<script type="text/javascript">
+										var count_id<?= $no ?> = "<?= date('Y-m-d G:i:s', strtotime($e['tanggal'])) ?>";
+										var countDownDate<?= $no ?> = new Date(count_id<?= $no ?>).getTime();
 
-									<div class="flex-sa-m flex-w w-full m-t-40">
+										var x<?= $no ?> = setInterval(function(){
+											var now = new Date().getTime();
+											var distance = countDownDate<?= $no ?> - now;
+
+											var days = Math.floor(distance/(1000*60*60*24));
+											var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+											var minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+											var seconds = Math.floor((distance%(1000*60))/1000);
+											
+											document.getElementById("hari<?= $no ?>").innerHTML = days;
+											document.getElementById("jam<?= $no ?>").innerHTML = hours;
+											document.getElementById("menit<?= $no ?>").innerHTML = minutes;
+											document.getElementById("detik<?= $no ?>").innerHTML = seconds;
+
+											if(distance<0){
+											clearInterval(x<?= $no?>);
+											document.getElementById("hari<?= $no ?>").innerHTML= "0";
+											document.getElementById("jam<?= $no ?>").innerHTML= "0";
+											document.getElementById("menit<?= $no ?>").innerHTML= "0";
+											document.getElementById("detik<?= $no ?>").innerHTML= "0";
+
+
+											
+											}
+										},1000);
+									</script>
+									
+									<div class="flex-sa-m flex-w w-full m-t-40" >
 										<div class="size11 flex-col-c-m">
-											<span class="dis-block t-center txt7 m-b-2 days">12</span>
+											<span class="dis-block t-center txt7 m-b-2" id="hari<?= $no ?>"></span>
 
 											<span class="dis-block t-center txt8">
 												Days
@@ -111,7 +143,7 @@
 										</div>
 
 										<div class="size11 flex-col-c-m">
-											<span class="dis-block t-center txt7 m-b-2 hours">12</span>
+											<span class="dis-block t-center txt7 m-b-2" id="jam<?= $no ?>" ></span>
 
 											<span class="dis-block t-center txt8">
 												Hours
@@ -119,7 +151,7 @@
 										</div>
 
 										<div class="size11 flex-col-c-m">
-											<span class="dis-block t-center txt7 m-b-2 minutes">46</span>
+											<span class="dis-block t-center txt7 m-b-2" id="menit<?= $no ?>"></span>
 
 											<span class="dis-block t-center txt8">
 												Minutes
@@ -127,14 +159,14 @@
 										</div>
 
 										<div class="size11 flex-col-c-m">
-											<span class="dis-block t-center txt7 m-b-2 seconds">28</span>
+											<span class="dis-block t-center txt7 m-b-2" id="detik<?= $no ?>"></span>
 
 											<span class="dis-block t-center txt8">
 												Seconds
 											</span>
 										</div>
 									</div>
-
+									
 									<a href="<?= $e['gmaps']?>" class="txt4 m-t-40">
 										<?= $e['lokasi']?>
 										<i class="fa fa-long-arrow-right m-l-10" aria-hidden="true"></i>

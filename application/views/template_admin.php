@@ -104,13 +104,6 @@
 							</div>
 							<div class="right_topbar">
 								<div class="icon_info">
-									<ul>
-										<li><a href="#"><i class="fa fa-bell-o"></i><span class="badge">2</span></a>
-										</li>
-										<li><a href="#"><i class="fa fa-question-circle"></i></a></li>
-										<li><a href="#"><i class="fa fa-envelope-o"></i><span class="badge">3</span></a>
-										</li>
-									</ul>
 									<ul class="user_profile_dd">
 										<li>
 											<a class="dropdown-toggle" data-toggle="dropdown"><img
@@ -119,7 +112,7 @@
 													alt="#" /><span
 													class="name_user"><?= $this->session->userdata('nama') ?></span></a>
 											<div class="dropdown-menu">
-												<a class="dropdown-item" href="settings.html">Password</a>
+												
 												<a class="dropdown-item" href="<?= site_url('auth/logout') ?>"><span>Log
 														Out</span>
 													<i class="fa fa-sign-out"></i></a>
